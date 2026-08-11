@@ -17,10 +17,10 @@ The standard error is calculated by divinding the standard deviation on the disc
 - Simulations: 100,000
 
 Outputs: 
-Theoretical mean final stock price: 105.1271
-Mean discounted payoff (Monte Carlo): 6.0703 ± 0.0372
-Black-Scholes call price: 6.0401
-95% confidence interval for discounted payoff: (5.9974, 6.1432)
+- Theoretical mean final stock price: 105.1271
+- Mean discounted payoff (Monte Carlo): 6.0703 ± 0.0372
+- Black-Scholes call price: 6.0401
+- 95% confidence interval for discounted payoff: (5.9974, 6.1432)
 
 ![Simulated stock price paths](monte_carlo_option_pricing.png)
 
