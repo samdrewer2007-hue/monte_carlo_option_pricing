@@ -33,6 +33,7 @@ def black_scholes_call_price(p_init, strike_price, time_to_maturity, risk_free_r
 
 fig, axs = plt.subplots(4, 1, figsize=(10, 12))
 
+# set up necessary variables for option pricing
 stock_data =simulate_stock_paths(p_init, time_to_maturity, risk_free_rate, volatility, num_simulations, random_seed)
 bs_call_price = black_scholes_call_price(p_init, strike_price, time_to_maturity, risk_free_rate, volatility)
 final_prices = stock_data[:, -1]
@@ -46,12 +47,10 @@ stderr_discounted_payoff = stdev_discounted_payoff / np.sqrt(num_simulations)
 
 running_mean = np.cumsum(discounted_payoffs) / np.arange(1, num_simulations + 1)
 
-print(f'Theoretical mean final stock price: {theoretical_mean}')
-print(f"Mean discounted payoff (Monte Carlo): {mean_discounted_payoff} ± {stderr_discounted_payoff}")
-print(f"Black-Scholes call price: {bs_call_price}")
-print(f"95% confidence interval for discounted payoff: ({mean_discounted_payoff - 1.96 * stderr_discounted_payoff}, {mean_discounted_payoff + 1.96 * stderr_discounted_payoff})")
-confidence_interval = (mean_discounted_payoff - 1.96 * stderr_discounted_payoff, mean_discounted_payoff + 1.96 * stderr_discounted_payoff)
-# set up necessary variables for option pricing
+print(f'Theoretical mean final stock price: {theoretical_mean:.4f}')
+print(f"Mean discounted payoff (Monte Carlo): {mean_discounted_payoff:.4f} ± {stderr_discounted_payoff:.4f}")
+print(f"Black-Scholes call price: {bs_call_price:.4f}")
+print(f"95% confidence interval for discounted payoff: ({mean_discounted_payoff - 1.96 * stderr_discounted_payoff:.4f}, {mean_discounted_payoff + 1.96 * stderr_discounted_payoff:.4f})")
 
 
 for i in range(min(50, num_simulations)):    #plot paths
