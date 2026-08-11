@@ -5,13 +5,12 @@ This project simulates the price paths of a given number of stocks in a Monte Ca
 ## Stock price modelling
 This project models the stock price through geometric Brownian motion. 
 
-\[
+$$
 S_{t+\Delta t}
 =
-S_t
-\exp\left[
+S_t \exp\left[
 \left(r-\frac{1}{2}\sigma^2\right)\Delta t
 +
 \sigma\sqrt{\Delta t}Z
 \right]
-\]
+$$
